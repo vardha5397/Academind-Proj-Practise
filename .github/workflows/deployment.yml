@@ -1,0 +1,47 @@
+name: Deployment
+
+on: [push]
+
+jobs:
+     linting:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting the code
+              uses: actions/checkout@v3
+            - name: Setting up environment
+              uses: actions/setup-node@v3
+              with:
+                    node-version: 17
+            - name: Installing dependencies
+              run: npm ci
+            - name: Linting
+              run: npm run lint
+     Testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting the code
+              uses: actions/checkout@v3
+            - name: Setting up the environment
+              uses: actions/setup-node@v3
+              with:
+                    node-version: 17
+            - name: Installing dependencies
+              run: npm ci
+            - name: Performing Testing
+              run: npm run test
+     Deployment:
+        runs-on: ubuntu-latest
+        steps:
+             - name: Getting the code
+               uses: actions/checkout@v3
+             - name: Setting up the environment
+               uses: actions/setup-node@v3
+               with:
+                      node-version: 17
+             - name: Installing Dependencies
+               run: npm ci
+             - name: Building
+               run: npm run build
+             - name: Deploying
+               run: echo "Deploying>>>>>>>"
+

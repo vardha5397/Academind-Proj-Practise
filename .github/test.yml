@@ -1,0 +1,23 @@
+name: Testing the project
+on: [push]
+
+jobs:
+    Build_test:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Getting the code
+           uses: actions/checkout@v3
+         - name: Setting the environment
+           uses: actions/setup-node@v3
+           with:
+                 node-version: 17
+         - name: Installing dependencies
+           run: npm ci
+         - name: linting 
+           run:  npm run lint
+         - name: Testing
+           run: npm run test
+         - name: Build code
+           run:  npm run build
+         - name: deploy code
+           run:  echo "Deploying......."

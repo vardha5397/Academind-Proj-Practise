@@ -1,0 +1,13 @@
+name: Close Issues
+
+on: 
+    issues:
+        types:
+            - opened
+            - closed
+jobs:
+     issue_jobs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Issues
+              run: echo " ${{github.repositoryUrl}}"

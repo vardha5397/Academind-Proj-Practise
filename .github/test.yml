@@ -1,5 +1,5 @@
 name: Testing the project
-on: [push,workflow_disptach]
+on:  [push,workflow_disptach]
 
 jobs:
     Build_test:

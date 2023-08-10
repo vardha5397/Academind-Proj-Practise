@@ -1,0 +1,13 @@
+name: Events That Trigger
+
+on:
+    pull_request:
+        types:
+            - opened
+    workflow_dispatch:
+jobs:
+    Eventtrigger: # Job-identifier
+       runs-on: ubuntu-latest
+       steps:
+          - name: Triggers event
+            run: echo "hello world"
